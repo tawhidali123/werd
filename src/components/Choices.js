@@ -9,6 +9,8 @@ export default function Choices() {
                 <li>third option</li>
                 <li>answer option</li>
             </ul>
+
+            
         </div>
     )
 }
