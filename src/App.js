@@ -5,6 +5,14 @@ import userActions from './redux/actions'
 import Button from './components/Button'
 function App() {
   const dispatch = useDispatch()
+  
+
+  const [toggle, setToggle] = useState({
+    gameStart: false,
+    gameEnd: true
+  })
+
+  const { gameStart, gameEnd } = toggle
 
   useEffect(() => {
         
@@ -12,41 +20,38 @@ function App() {
         
   },    [dispatch])
 
-  const [toggle, setToggle] = useState({
-    gameStart: false,
-    gameEnd: true
-  })
 
   const handleClick = e => {
+    debugger
     setToggle({
-      gameStart: !toggle.gameStart,
-      gameEnd: !toggle.gameEnd
+      ...toggle,
+      gameStart: !gameStart,
+      gameEnd: !gameEnd
     })
   }
   
-  const { gameStart, gameEnd } = toggle
-  
   const gameCondition = (toggle) => {
-    if(toggle.gameStart){
+    console.log(toggle.gameStart)
+    if(toggle.gameEnd === true){
+      return(
+        <div>
+          <Button onClick={handleClick()} />  
+        </div>
+      )
+    }
+    else{
       return(
         <div>
           <GameContainer />
         </div>
       )
     }
-
-    
-    else{
-      return(
-        <div>
-          <Button onClick={handleClick()} />
-        </div>
-      )
-    }
   }
 
   return(
-    gameCondition(toggle)
+    <div>
+      {gameCondition(toggle)}
+    </div>
   )
 }
 
