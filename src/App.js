@@ -6,6 +6,12 @@ import Button from './components/Button'
 function App() {
   const dispatch = useDispatch()
   
+  useEffect(() => {
+        
+    dispatch(userActions.getWords())
+    dispatch(userActions.getChoices())
+        
+  },    [dispatch])
 
   const [toggle, setToggle] = useState({
     gameStart: false,
@@ -13,13 +19,6 @@ function App() {
   })
 
   const { gameStart, gameEnd } = toggle
-
-  useEffect(() => {
-        
-    dispatch(userActions.getWords(), userActions.getChoices())
-        
-  },    [dispatch])
-
 
   const handleClick = e => {
     debugger
