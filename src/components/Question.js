@@ -1,9 +1,21 @@
 import React from 'react'
+import ChoiceContainer from '../containers/ChoiceContainer'
 
-export default function Question() {
+const Question = (props) => {
+    const prompt = props.slang.term 
+    const answer = props.slang.definition 
+
     return (
-        <div>
-            <h1>What is ... Question?</h1>
-        </div>
+        <>
+            <div>
+                 <h1> {prompt} </h1>
+            </div>
+
+            <div>
+                <ChoiceContainer answer={answer}/>
+            </div>
+        </>
     )
 }
+
+export default Question

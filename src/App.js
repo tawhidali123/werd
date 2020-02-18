@@ -21,7 +21,6 @@ function App() {
   const { gameStart, gameEnd } = toggle
 
   const handleClick = e => {
-    debugger
     setToggle({
       ...toggle,
       gameStart: !gameStart,
