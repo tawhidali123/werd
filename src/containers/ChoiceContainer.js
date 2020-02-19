@@ -11,25 +11,28 @@ const ChoiceContainer = (props) => {
         return Math.random() * (max - min) + min;
       }
 
-    const getRandomChoice = (choiceList, choices) => {
+    const getRandomChoice = (choiceList) => {
+        
         
         let num = choiceList.length
-
+        let options = []
         choiceList.map(choice => {
-            let randomChoice = Math.floor(getRandomArbitraryNumber(1, num))
-            console.log(randomChoice)
-            if (choice.id === randomChoice && choices.length < 5) {
-                choices.push(choice)
+            let randomChoice = Math.floor(getRandomArbitraryNumber(1, num)).toString()
+            if (choice.id === randomChoice) {
+                options.push(choice)
             }
-            console.table(choices)
+            console.log(options)
+            
             return(
-                console.log("done")
+                options
             )
         })
     }
 
     const displayChoices = (choiceList) => {
-        getRandomChoice(choiceList)
+        debugger
+        let choices = getRandomChoice(choiceList)
+        console.log(choices)
         choices.map(entry => {
             return(
                 <Choice option={entry} />
