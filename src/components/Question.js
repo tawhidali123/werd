@@ -5,17 +5,18 @@ const Question = (props) => {
     const prompt = props.slang.term 
     const answer = props.slang.definition 
 
-    return (
-        <>
-            <div>
-                 <h1> {prompt} </h1>
-            </div>
+export default function Question() {
 
-            <div>
-                <ChoiceContainer answer={answer}/>
-            </div>
-        </>
+    return (
+        <div>
+            <h1 style={{
+                color: '#C4BBB8',
+                
+                
+                
+            }}>What is ... Question?</h1>
+        </div>
     )
 }
 
-export default Question
+}
