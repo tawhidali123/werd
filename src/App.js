@@ -8,41 +8,47 @@ function App() {
   
   useEffect(() => {
         
-    dispatch(userActions.getWords())
     dispatch(userActions.getChoices())
+    dispatch(userActions.getWords())
         
   },    [dispatch])
 
   const [toggle, setToggle] = useState({
-    gameStart: false,
-    gameEnd: true
+    gameOn: false
+    
   })
 
-  const { gameStart, gameEnd } = toggle
+  const { gameOn } = toggle
 
   const handleClick = e => {
+    console.log("hello")
+    // dispatch(userActions.getChoices())
+    // dispatch(userActions.getWords())
     setToggle({
       ...toggle,
-      gameStart: !gameStart,
-      gameEnd: !gameEnd
+      gameOn: !gameOn
+    // //   // gameEnd: !gameEnd
     })
   }
   
   const gameCondition = (toggle) => {
-    console.log(toggle.gameStart)
-    if(toggle.gameEnd === true){
-      return(
-        <div>
-          <Button onClick={handleClick()} />  
-        </div>
-      )
-    }
-    else{
+    console.log(toggle.gameOn)
+    if(toggle.gameOn === true){
+  
       return(
         <div>
           <GameContainer />
         </div>
       )
+      
+    }
+    else{
+      return(
+        <div>
+          <button onClick={handleClick}>hi </button> 
+        </div>
+      )
+     
     }
   }
 

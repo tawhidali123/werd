@@ -21,11 +21,11 @@ const getWords = () => dispatch => {
 }
 
 const getChoices = () => dispatch => {
-fetch("http://localhost:3000/choices")
-.then(res => res.json())
-.then((response) => {
-    console.log(response)
-    dispatch(setChoices(response.data))
+    fetch("http://localhost:3000/choices")
+    .then(res => res.json())
+    .then((response) => {
+        console.log(response)
+        dispatch(setChoices(response.data))
     })
 }
 
