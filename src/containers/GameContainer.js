@@ -11,15 +11,21 @@ export default function GameContainer() {
     
     const slangTerms = []
     const mappedWords = wordPool.map(word => {
+        console.log(word)
         const slang = {
             term: word.attributes.term,
             definition: word.attributes.definition
         }
         return(
-            <div>
-                <Question slang={slang} />
-                <ChoiceContainer slang={slang} />
-            </div>
+            <>
+                <div>
+                    <Question slang={slang} />
+                </div>
+
+                <div>
+                    <ChoiceContainer slang={slang} />
+                </div>
+            </>
         )
     })
 

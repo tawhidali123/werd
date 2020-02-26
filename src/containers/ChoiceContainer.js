@@ -1,4 +1,4 @@
-import React, { useEffect} from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import Choice from '../components/Choice'
 
@@ -34,46 +34,48 @@ const ChoiceContainer = (props) => {
             randomChoice.map(randomOption => {
                 
                 if(choiceList[i].id === randomOption){
-                    choices.push(choiceList[i])
+                    choices.push(choiceList[i].attributes.definition)
                     
                 }
-                return choices
-                
-                
-            })
-            // debugger
-            
-        //     choiceList.map(choice => {
-        //         randomChoice.map(randomOption =>{
-        //             if (choice.id === randomOption){
-        //                 options.push(choice)
-        //             }
-        //             return true
-        //         })
-        //         return options
-        //     }
-        // )
+                return choices    
+            }
+        )
     }
     return choices
 }
 
-    const displayChoices = () => {
-        getRandomChoices()
-        console.log(choices)
-        choices.map(entry => {
+    // const displayChoices = () => {
+    //     getRandomChoices()
+    //     console.log(choices)
+    //     choices.forEach(entry => {
+    //         return(
+    //             entry.definition
+    //         )
+    //     })
+    // }
+
+    getRandomChoices()
+    console.log(choices)
+
+    const mappedChoices = choices.map(entry => 
+        {
             console.log(entry)
-            return(
-                
-                <Choice option={entry} />
-            )
-        })
-    }
+                const prompt = {
+                definition: entry
+            }
+        return(
+            <>
+                <div>
+                    <Choice prompt={prompt} />
+                </div>
+            </>
+        )
+    })
 
     return(
-        <ul>
-            {displayChoices()}
-            
-        </ul>
+        <div>
+             {mappedChoices}       
+        </div>            
     )
 
 }
