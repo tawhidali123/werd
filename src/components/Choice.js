@@ -1,9 +1,12 @@
 import React from 'react'
 
-export default function Choice(props) {
+const Choice = (props) => {
+    console.log(props)
     return (
         <div>
-            {props.option.attributes.definition}
+            {props.prompt.definition}
         </div>
     )
 }
+
+export default Choice
