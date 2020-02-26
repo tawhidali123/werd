@@ -45,7 +45,7 @@ function App() {
     else{
       return(
         <div>
-          <button onClick={handleClick}>hi </button> 
+          <button onClick={handleClick} className="box" >PLAY</button> 
         </div>
       )
      
