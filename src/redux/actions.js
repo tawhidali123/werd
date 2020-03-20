@@ -6,8 +6,20 @@ const setWords = words => ({
 
 const setChoices = choices => ({
     type: 'LOAD_CHOICES',
-payload: choices
+    payload: choices
 })
+
+const incrementGameScore = () => {
+    return {
+      type: 'INCREMENT_GAME_SCORE',
+    }
+  }
+
+const incrementWrongAnswer = () => {
+return {
+    type: 'INCREMENT_WRONG_ANSWER',
+    }
+}
 
 // Fetches
 
@@ -33,5 +45,7 @@ export default {
     getWords,
     getChoices,
     setWords,
-    setChoices
+    setChoices,
+    incrementGameScore,
+    incrementWrongAnswer
 }

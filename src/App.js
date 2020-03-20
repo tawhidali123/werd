@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import GameContainer from './containers/GameContainer'
 import userActions from './redux/actions'
 import Button from './components/Button'
+import { FaPlay } from 'react-icons/fa';
 function App() {
   const dispatch = useDispatch()
   
@@ -44,8 +45,17 @@ function App() {
     }
     else{
       return(
-        <div>
-          <button onClick={handleClick} className="box" >PLAY</button> 
+        <div className="container">
+          <div className="welcome section">
+            W E R D
+          </div>
+          
+            <div className="section">
+            <button onClick={handleClick} className="box circle icon"  >
+              <FaPlay />
+            </button>
+            </div>
+             
         </div>
       )
      

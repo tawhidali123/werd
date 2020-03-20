@@ -1,20 +1,17 @@
 import React from 'react'
 import ChoiceContainer from '../containers/ChoiceContainer'
+import SlangContainer from '../containers/SlangContainer'
 
 const Question = (props) => {
-    const prompt = props.slang.term 
-    // const answer = props.slang.definition 
-
+    
     return (
         <>
             <div>
-                 <h1> {prompt} </h1>
-                 
+                 <SlangContainer slang={props.slang.term} />
             </div>
 
             <div>
-                {/* <ChoiceContainer answer={answer}/> */}
-                {/* hello */}
+                <ChoiceContainer answer={props.slang.definition}/>
             </div>
         </>
     )
